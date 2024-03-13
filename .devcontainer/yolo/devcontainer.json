@@ -1,0 +1,9 @@
+{
+  "name": "yolov9",
+  "dockerComposeFile": ["./docker-compose.yml"],
+  "service": "v9",
+  "workspaceFolder": "/workspace",
+  "extensions": ["ms-python.python","ms-toolsai.jupyter","ms-python.vscode-pylance","christian-kohler.path-intellisense"],
+  "shutdownAction": "none",
+  "updateRemoteUserUID": false
+}

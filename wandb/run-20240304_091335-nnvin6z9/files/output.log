@@ -1,0 +1,60 @@
+
+Downloading https://ultralytics.com/assets/Arial.ttf to /root/.config/Ultralytics/Arial.ttf...
+Traceback (most recent call last):
+  File "train_dual.py", line 644, in <module>
+    main(opt)
+  File "train_dual.py", line 538, in main
+    train(opt.hyp, opt, device, callbacks)
+  File "train_dual.py", line 81, in train
+    loggers = Loggers(save_dir, weights, opt, hyp, LOGGER)  # loggers instance
+  File "/yolov9/yolov9_official/utils/loggers/__init__.py", line 106, in __init__
+    self.wandb = WandbLogger(self.opt, run_id)
+  File "/yolov9/yolov9_official/utils/loggers/wandb/wandb_utils.py", line 192, in __init__
+    self.data_dict = check_wandb_dataset(opt.data)
+  File "/yolov9/yolov9_official/utils/loggers/wandb/wandb_utils.py", line 59, in check_wandb_dataset
+    return check_dataset(data_file)
+  File "/yolov9/yolov9_official/utils/general.py", line 555, in check_dataset
+    check_font('Arial.ttf' if is_ascii(data['names']) else 'Arial.Unicode.ttf', progress=True)  # download fonts
+  File "/yolov9/yolov9_official/utils/general.py", line 490, in check_font
+    torch.hub.download_url_to_file(url, str(file), progress=progress)
+  File "/opt/conda/lib/python3.8/site-packages/torch/hub.py", line 452, in download_url_to_file
+    u = urlopen(req)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 563, in error
+    result = self._call_chain(*args)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 755, in http_error_302
+    return self.parent.open(new, timeout=req.timeout)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 563, in error
+    result = self._call_chain(*args)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 755, in http_error_302
+    return self.parent.open(new, timeout=req.timeout)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 542, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 1397, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/opt/conda/lib/python3.8/urllib/request.py", line 1358, in do_open
+    r = h.getresponse()
+  File "/opt/conda/lib/python3.8/http/client.py", line 1348, in getresponse
+    response.begin()
+  File "/opt/conda/lib/python3.8/http/client.py", line 316, in begin
+    version, status, reason = self._read_status()
+  File "/opt/conda/lib/python3.8/http/client.py", line 285, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response

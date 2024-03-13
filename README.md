@@ -55,7 +55,7 @@ Docker environment (recommended)
 
 ``` shell
 # create the docker container, you can change the share memory size if you have more.
-nvidia-docker run --name yolov9 -it -v your_coco_path/:/coco/ -v your_code_path/:/yolov9 --shm-size=64g nvcr.io/nvidia/pytorch:21.11-py3
+nvidia-docker run --name yolov9 -it -v /home/yang/data/smoke-fire-person-dataset/person/VisDrone/:/coco/ -v /home/yang/workspace/yolov9/:/yolov9 --shm-size=64g nvcr.io/nvidia/pytorch:21.11-py3
 
 # apt install required packages
 apt update
@@ -116,6 +116,7 @@ Single GPU training
 ``` shell
 # train yolov9 models
 python train_dual.py --workers 8 --device 0 --batch 16 --data data/coco.yaml --img 640 --cfg models/detect/yolov9-c.yaml --weights '' --name yolov9-c --hyp hyp.scratch-high.yaml --min-items 0 --epochs 500 --close-mosaic 15
+python train_dual.py --workers 2 --device 0 --batch 8 --data data/visdrone.yaml --img 640 --cfg models/detect/yolov9-c.yaml --weights '' --name yolov9-c --hyp hyp.scratch-high.yaml --min-items 0 --epochs 500 --close-mosaic 15
 
 # train gelan models
 # python train.py --workers 8 --device 0 --batch 32 --data data/coco.yaml --img 640 --cfg models/detect/gelan-c.yaml --weights '' --name gelan-c --hyp hyp.scratch-high.yaml --min-items 0 --epochs 500 --close-mosaic 15

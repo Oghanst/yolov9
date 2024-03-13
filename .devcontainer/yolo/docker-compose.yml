@@ -1,0 +1,25 @@
+version: '3'
+services:
+  v9:
+    hostname: ibds
+    build:
+      context: .
+      args:
+        - USERNAME=yang
+        - USER_UID=1024
+        - USER_GID=1024
+    container_name: yolov9
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    ipc: host
+    network_mode: host
+    shm_size: 64g
+    volumes:
+      - /home/yang/data/smoke-fire-person-dataset/person/VisDrone/:/coco/
+      - /home/yang/workspace/yolov9/:/yolov9
+    command: /bin/sh -c "while sleep 1000; do :; done"
